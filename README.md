@@ -160,17 +160,7 @@ This is an example of how to use:
     2. Run `sudo apt update && sudo apt upgrade`
     3. Run `sudo apt install g++-12 gcc-12 build-essential`
 
-8. Install `cmake` from source.
-    1. Download `cmake-3.25.0.tar.gz` from this link: https://cmake.org/download/
-    2. Unzip it with the command `tar -xzf cmake-3.25.0.tar.gz`.
-    3. Run the following commands:
-        ```
-        sudo ./configure
-        sudo make
-        sudo make install
-        ```
-
-9. Add GitHub settings
+8. Add GitHub settings
     1. Restart WSL
     2. Run `mkdir repos`
     3. Connect to GitHub
@@ -190,30 +180,6 @@ This is an example of how to use:
             5. For "Key," paste the copied key.
             6. Click "Add SSH Key"
             7. Run `ssh -T git@github.com`, then type "yes"
-
-10. Install GoogleTest from source.
-    ```
-    git clone https://github.com/google/googletest.git -b release-1.12.1
-    cd googletest        # Main directory of the cloned repository.
-    mkdir build          # Create a directory to hold the build output.
-    cd build
-    cmake ..             # Generate native build scripts for GoogleTest.
-    sudo make
-    sudo make install
-    rm -rf ~/googletest
-    ```
-    
-11. Install FMT from source.
-    * Download fmt library from [its release page on GitHub](https://github.com/fmtlib/fmt/releases/tag/9.1.0).
-    * Unzip the `fmt` downloaded file.
-    * Run the following commands:
-        ```
-        mkdir build
-        cd build
-        sudo cmake ..
-        sudo make
-        sudo make install
-        ```
 
 ## Setting up VSCode
 1. Right-click on the project folder, select `Open in Linux` to open the application in WSL2, then type `code .`
@@ -254,3 +220,56 @@ This is an example of how to use:
         2. Press Enter to save the keybinding.
     3. In the keybindings search box, type "Makefile: Build clean the current target"
         1. Double-click the keybinding and replace it with Ctrl+Shift+Z.
+
+## Setting up the dependencies for this project
+1. Download the project source code:
+    1. Open WSL.
+        1. Ctrl+R
+        2. Type `wsl`
+        3. Press Enter
+
+    2. Run these commands:
+        ```
+        cd repos
+        git clone git@github.com:brian-chau/cpp_large_numbers.git
+        ```
+2. Setup the project
+    1. Navigate to the project with `cd cpp_large_numbers`
+    2. Run this command to install the necessary libraries: `sudo apt install make build-essential lzip m4 libncurses5-dev`
+    3. Install "gmp":
+        1. Download GMP from here: https://gmplib.org/
+        2. Unpack it with the command: `sudo tar --lzip -xvf gmp-x.y.z.tar.lz`
+        3. Navigate into that folder: `cd gmp-x.y.z`
+        4. Run the following commands:
+            ```
+            sudo ./configure --enable-cxx
+            sudo make
+            sudo make check
+            sudo make install
+            ```
+    4. Run: `make`
+    5. Run: `sudo ldconfig`
+
+3. Install GoogleTest from source.
+    ```
+    git clone https://github.com/google/googletest.git -b release-1.12.1
+    cd googletest        # Main directory of the cloned repository.
+    mkdir build          # Create a directory to hold the build output.
+    cd build
+    cmake ..             # Generate native build scripts for GoogleTest.
+    sudo make
+    sudo make install
+    rm -rf ~/googletest
+    ```
+    
+4. Install FMT from source.
+    * Download fmt library from [its release page on GitHub](https://github.com/fmtlib/fmt/releases/tag/9.1.0).
+    * Unzip the `fmt` downloaded file.
+    * Run the following commands:
+        ```
+        mkdir build
+        cd build
+        sudo cmake ..
+        sudo make
+        sudo make install
+        ```
