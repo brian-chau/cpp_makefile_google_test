@@ -153,6 +153,16 @@ This is an example of how to use:
     alias cls="printf '\ec'; history -c"
     alias nanos="nano -c -ET4"
     alias ii="explorer.exe"
+    function git_reset() {
+        git reset HEAD
+        git checkout HEAD .
+        git clean -fxd
+        git remote update origin --prune
+        git checkout main
+        git fetch -p
+        git pull
+        git branch -vv | grep "\: gone" | awk '{print $1}' | xargs git branch -d
+    }
     ```
 
 7. Add GitHub settings
