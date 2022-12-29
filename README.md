@@ -241,7 +241,9 @@ This is an example of how to use:
     ```
 
 4. Install `g++12`, `gcc-12`, and `lcov`.
-    `sudo apt install g++-12 gcc-12 lcov`
+    ```
+    sudo apt install g++-12 gcc-12 lcov
+    ```
 
 5. Install GoogleTest from source.
     ```
