@@ -155,12 +155,7 @@ This is an example of how to use:
     alias ii="explorer.exe"
     ```
 
-7. Install gcc-12 and g++-12.
-    1. Restart WSL.
-    2. Run `sudo apt update && sudo apt upgrade`
-    3. Run `sudo apt install g++-12 gcc-12 build-essential`
-
-8. Add GitHub settings
+7. Add GitHub settings
     1. Restart WSL
     2. Run `mkdir repos`
     3. Connect to GitHub
@@ -222,21 +217,10 @@ This is an example of how to use:
         1. Double-click the keybinding and replace it with Ctrl+Shift+Z.
 
 ## Setting up the dependencies for this project
-1. Download the project source code:
-    1. Open WSL.
-        1. Ctrl+R
-        2. Type `wsl`
-        3. Press Enter
+1. Install `ncurses`
+    1. Run this command to install the necessary libraries: `sudo apt install make build-essential lzip m4 libncurses5-dev`
 
-    2. Run these commands:
-        ```
-        cd repos
-        git clone git@github.com:brian-chau/cpp_large_numbers.git
-        ```
-2. Setup the project
-    1. Navigate to the project with `cd cpp_large_numbers`
-    2. Run this command to install the necessary libraries: `sudo apt install make build-essential lzip m4 libncurses5-dev`
-    3. Install "gmp":
+2. Install "gmp":
         1. Download GMP from here: https://gmplib.org/
         2. Unpack it with the command: `sudo tar --lzip -xvf gmp-x.y.z.tar.lz`
         3. Navigate into that folder: `cd gmp-x.y.z`
@@ -250,7 +234,16 @@ This is an example of how to use:
     4. Run: `make`
     5. Run: `sudo ldconfig`
 
-3. Install GoogleTest from source.
+3. Install `pip3` and `gcovr`.
+    ```
+    sudo apt install python3-pip
+    pip3 install gcovr
+    ```
+
+4. Install `g++12`, `gcc-12`, and `lcov`.
+    `sudo apt install g++-12 gcc-12 lcov`
+
+5. Install GoogleTest from source.
     ```
     git clone https://github.com/google/googletest.git -b release-1.12.1
     cd googletest        # Main directory of the cloned repository.
@@ -262,7 +255,7 @@ This is an example of how to use:
     rm -rf ~/googletest
     ```
     
-4. Install FMT from source.
+6. Install FMT from source.
     * Download fmt library from [its release page on GitHub](https://github.com/fmtlib/fmt/releases/tag/9.1.0).
     * Unzip the `fmt` downloaded file.
     * Run the following commands:
