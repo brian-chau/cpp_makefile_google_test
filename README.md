@@ -191,6 +191,30 @@ This is an example of how to use:
             6. Click "Add SSH Key"
             7. Run `ssh -T git@github.com`, then type "yes"
 
+10. Install GoogleTest from source.
+    ```
+    git clone https://github.com/google/googletest.git -b release-1.12.1
+    cd googletest        # Main directory of the cloned repository.
+    mkdir build          # Create a directory to hold the build output.
+    cd build
+    cmake ..             # Generate native build scripts for GoogleTest.
+    sudo make
+    sudo make install
+    rm -rf ~/googletest
+    ```
+    
+11. Install FMT from source.
+    * Download fmt library from [its release page on GitHub](https://github.com/fmtlib/fmt/releases/tag/9.1.0).
+    * Unzip the `fmt` downloaded file.
+    * Run the following commands:
+        ```
+        mkdir build
+        cd build
+        sudo cmake ..
+        sudo make
+        sudo make install
+        ```
+
 ## Setting up VSCode
 1. Right-click on the project folder, select `Open in Linux` to open the application in WSL2, then type `code .`
 2. If prompted to answer "Do you trust the authors of the files in this folder?" check the box "Trust the authors of all files in the parent folder" and click "Yes, I trust the authors."
