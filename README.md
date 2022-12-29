@@ -233,6 +233,23 @@ This is an example of how to use:
         ```
     4. Run: `make`
     5. Run: `sudo ldconfig`
+        1. If you get an error that says `/sbin/ldconfig.real: /usr/lib/wsl/lib/libcuda.so.1 is not a symbolic link`, then do the following:
+        ```
+        # in cmd as admin
+        cd C:\Windows\System32\lxss\lib
+        del libcuda.so
+        del libcuda.so.1
+        wsl -e /bin/bash
+        # in WSL
+        ln -s libcuda.so.1.1 libcuda.so.1
+        ln -s libcuda.so.1.1 libcuda.so
+        exit
+        # back in CMD
+        wsl --shutdown
+        wsl -e /bin/bash
+        # in restarted WSL
+        sudo ldconfig
+        ```
 
 3. Install `pip3` and `gcovr`.
     ```
@@ -245,7 +262,12 @@ This is an example of how to use:
     sudo apt install g++-12 gcc-12 lcov
     ```
 
-5. Install GoogleTest from source.
+5. Install CMake.
+    ```
+    sudo apt install cmake
+    ```
+
+6. Install GoogleTest from source.
     ```
     git clone https://github.com/google/googletest.git -b release-1.12.1
     cd googletest        # Main directory of the cloned repository.
@@ -257,7 +279,7 @@ This is an example of how to use:
     rm -rf ~/googletest
     ```
     
-6. Install FMT from source.
+7. Install FMT from source.
     * Download fmt library from [its release page on GitHub](https://github.com/fmtlib/fmt/releases/tag/9.1.0).
     * Unzip the `fmt` downloaded file.
     * Run the following commands:
