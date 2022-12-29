@@ -288,7 +288,7 @@ This is an example of how to use:
     sudo make install
     rm -rf ~/googletest
     ```
-    
+
 7. Install FMT from source.
     * Download fmt library from [its release page on GitHub](https://github.com/fmtlib/fmt/releases/tag/9.1.0).
     * Unzip the `fmt` downloaded file.
@@ -300,3 +300,19 @@ This is an example of how to use:
         sudo make
         sudo make install
         ```
+
+8. Set up the badge generator.
+    1. Download the Go programming language from this URL, select `Linux`, and download the *.tar.gz file: https://go.dev/doc/install
+    2. Install Go by using this command:
+    ```
+    sudo rm -rf /usr/local/go && sudo tar -C /usr/local -xzf go1.19.4.linux-amd64.tar.gz
+    ```
+    3. Download the dependencies for the badge generator:
+    ```
+    go mod init main
+    go mod tidy
+    ```
+    4. Compile the generator:
+    ```
+    go build generate_badges.go
+    ```

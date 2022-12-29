@@ -11,7 +11,7 @@ OBJS = $(SRCS:.c=.o)
 TEST_SRCS = $(wildcard ./tests/Test_*.c ./sources/*.c)
 TEST_SRCS := $(filter-out ./sources/main.c, $(TEST_SRCS))
 TEST_OBJS = $(TEST_SRCS:.cpp=.o)
-CFLAGS = -Wall -Werror -O3 -fPIC -g
+CFLAGS = -Wall -Werror -O3 -fPIC -g --coverage
 .c.o:
 	$(CC) $(CFLAGS) $(INCLUDES) -c $<  -o $@
 else
@@ -21,7 +21,7 @@ OBJS = $(SRCS:.cpp=.o)
 TEST_SRCS = $(wildcard ./tests/Test_*.cpp ./sources/*.cpp)
 TEST_SRCS := $(filter-out ./sources/main.cpp, $(TEST_SRCS))
 TEST_OBJS = $(TEST_SRCS:.cpp=.o)
-CFLAGS = -Wall -Werror -O3 -fPIC -std=c++20 -g
+CFLAGS = -Wall -Werror -O3 -fPIC -std=c++20 -g --coverage
 .cpp.o:
 	$(CC) $(CFLAGS) $(INCLUDES) -c $<  -o $@
 endif
@@ -41,7 +41,7 @@ LFLAGS = -L./libs
 LIBS = -lncurses -lgtest -lgcov -lgmp -lgmpxx -lfmt
 
 # Linker flags
-LDFLAGS = -fprofile-arcs -ftest-coverage
+LDFLAGS = -fprofile-arcs -ftest-coverage --coverage
 
 # define the executable file
 MAIN = exe
@@ -56,8 +56,8 @@ $(MAIN): $(OBJS)
 	$(CC) $(CFLAGS) $(INCLUDES) -o $(MAIN) $(OBJS) $(LFLAGS) $(LIBS) $(LDFLAGS)
 
 clean:
-	$(RM) ./sources/*.o *~ $(MAIN)
-	$(RM) ./tests/*.o *~ $(TEST)
+	$(RM) ./sources/*.o ./sources/*.gcno ./sources/*.gcda *~ $(MAIN)
+	$(RM) ./tests/*.o ./tests/*.gcno ./tests/*.gcda *~ $(TEST)
 
 test:    $(TEST)
 	@echo $(TEST) has been compiled
