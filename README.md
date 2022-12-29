@@ -221,16 +221,16 @@ This is an example of how to use:
     1. Run this command to install the necessary libraries: `sudo apt install make build-essential lzip m4 libncurses5-dev`
 
 2. Install "gmp":
-        1. Download GMP from here: https://gmplib.org/
-        2. Unpack it with the command: `sudo tar --lzip -xvf gmp-x.y.z.tar.lz`
-        3. Navigate into that folder: `cd gmp-x.y.z`
-        4. Run the following commands:
-            ```
-            sudo ./configure --enable-cxx
-            sudo make
-            sudo make check
-            sudo make install
-            ```
+    1. Download GMP from here: https://gmplib.org/
+    2. Unpack it with the command: `sudo tar --lzip -xvf gmp-x.y.z.tar.lz`
+    3. Navigate into that folder: `cd gmp-x.y.z`
+    4. Run the following commands:
+        ```
+        sudo ./configure --enable-cxx
+        sudo make
+        sudo make check
+        sudo make install
+        ```
     4. Run: `make`
     5. Run: `sudo ldconfig`
 
