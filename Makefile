@@ -38,7 +38,7 @@ LFLAGS = -L./libs
 # define any libraries to link into executable:
 #   if I want to link in libraries (libx.so or libx.a) I use the -llibname
 #   option, something like (this will link in libmylib.so and libm.so:
-LIBS = -lgtest -lgcov -lgmp -lfmt
+LIBS = -lncurses -lgtest -lgcov -lgmp -lgmpxx -lfmt
 
 # Linker flags
 LDFLAGS = -fprofile-arcs -ftest-coverage
