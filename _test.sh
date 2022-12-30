@@ -3,14 +3,17 @@
 echo Cleaning directory
 make clean 1>/dev/null 2>&1
 
-echo Building the test...
+echo Preparing to test...
 make test 1>/dev/null 2>&1
 
 echo Running the test!
 { err=$(./exe_test 2>&1 >&3 3>&-); } 3>&1
 status=Pass
 if [[ $err == *"TEST FAILED"* ]]; then
+    echo Test failed!
     status=Fail
+else
+    echo Test passed!
 fi
 
 echo Generating code coverage...

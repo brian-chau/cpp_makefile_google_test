@@ -1,5 +1,11 @@
 # C++ on WSL2 with VS Code and CMake
 
+| Description    | Badge  |
+| -------------- | ------ |
+| Line Code Coverage  | [![Line Code Coverage](TestResults/Badges/Line_Coverage.svg)](https://htmlpreview.github.io/?https://github.com/brian-chau/cpp_cmake_google_test/blob/main/TestResults/CodeCoverage/index.html) |
+| Fxn Code Coverage   | [![Fxn Code Coverage](TestResults/Badges/Fxn_Coverage.svg)](https://htmlpreview.github.io/?https://github.com/brian-chau/cpp_cmake_google_test/blob/main/TestResults/CodeCoverage/index.html) |
+| Test Results        | [![Test Results](TestResults/Badges/Test_Result.svg)](https://github.com/brian-chau/cpp_cmake_google_test/blob/main/TestResults/gtest_results.txt) |
+
 This is an example of how to use:
 * Install Ubuntu in WSL2
 * Setting up Visual Studio Code for GCC compiler for C++ applications
@@ -216,7 +222,6 @@ This is an example of how to use:
         2. Copy that path and paste it into the field.
     9. In the search bar, type "Default Formatter" and select from the dropdown menu `C/C++`.
     10. In the search bar, type `C_Cpp.default.cppStandard` and change the value to `gnu++20`
-
 11. Set the key bindings to build and clean the solution.
     1. Press Ctrl+K Ctrl+S
     2. In the keybindings search box, type "makefile: build clean the target ALL"
@@ -272,36 +277,30 @@ This is an example of how to use:
     sudo apt install g++-12 gcc-12 lcov
     ```
 
-5. Install CMake.
+5. Install `openssl` from source, along with the `libssl-dev` library.
+    * Download the version `3.0.7` from here: https://www.openssl.org/source/
+    * Run the following commands:
     ```
-    sudo apt install cmake
-    ```
-
-6. Install GoogleTest from source.
-    ```
-    git clone https://github.com/google/googletest.git -b release-1.12.1
-    cd googletest        # Main directory of the cloned repository.
-    mkdir build          # Create a directory to hold the build output.
-    cd build
-    cmake ..             # Generate native build scripts for GoogleTest.
+    sudo chmod u+x openssl-3.0.7.tar.gz
+    tar -xzf openssl-3.0.7.tar.gz
+    cd openssl-3.0.7
+    sudo ./config --prefix=/usr/local/ssl --openssldir=/usr/local/ssl shared zlib
     sudo make
     sudo make install
-    rm -rf ~/googletest
+    sudo apt-get install libssl-dev
     ```
 
-7. Install FMT from source.
-    * Download fmt library from [its release page on GitHub](https://github.com/fmtlib/fmt/releases/tag/9.1.0).
-    * Unzip the `fmt` downloaded file.
-    * Run the following commands:
+6. Install `cmake` from source.
+    1. Download `cmake-3.25.0.tar.gz` from this link: https://cmake.org/download/
+    2. Unzip it with the command `tar -xzf cmake-3.25.0.tar.gz`.
+    3. Run the following commands:
         ```
-        mkdir build
-        cd build
-        sudo cmake ..
+        sudo ./configure
         sudo make
         sudo make install
         ```
 
-8. Set up the badge generator.
+7. Set up the badge generator.
     1. Download the Go programming language from this URL, select `Linux`, and download the *.tar.gz file: https://go.dev/doc/install
     2. Install Go by using this command:
     ```
@@ -316,3 +315,28 @@ This is an example of how to use:
     ```
     go build generate_badges.go
     ```
+
+8. Install GoogleTest from source.
+    ```
+    git clone https://github.com/google/googletest.git -b release-1.12.1
+    cd googletest        # Main directory of the cloned repository.
+    mkdir build          # Create a directory to hold the build output.
+    cd build
+    cmake ..             # Generate native build scripts for GoogleTest.
+    sudo make
+    sudo make install
+    rm -rf ~/googletest
+    ```
+
+9. Install FMT from source.
+    * Download fmt library from [its release page on GitHub](https://github.com/fmtlib/fmt/releases/tag/9.1.0).
+    * Unzip the `fmt` downloaded file.
+    * Run the following commands:
+        ```
+        mkdir build
+        cd build
+        sudo cmake ..
+        sudo make
+        sudo make install
+        ```
+
