@@ -2,9 +2,9 @@
 
 | Description    | Badge  |
 | -------------- | ------ |
-| Line Code Coverage  | [![Line Code Coverage](TestResults/Badges/Line_Coverage.svg)](https://htmlpreview.github.io/?https://github.com/brian-chau/cpp_cmake_google_test/blob/main/TestResults/CodeCoverage/index.html) |
-| Fxn Code Coverage   | [![Fxn Code Coverage](TestResults/Badges/Fxn_Coverage.svg)](https://htmlpreview.github.io/?https://github.com/brian-chau/cpp_cmake_google_test/blob/main/TestResults/CodeCoverage/index.html) |
-| Test Results        | [![Test Results](TestResults/Badges/Test_Result.svg)](https://github.com/brian-chau/cpp_cmake_google_test/blob/main/TestResults/gtest_results.txt) |
+| Line Code Coverage  | [![Line Code Coverage](TestResults/Badges/Line_Coverage.svg)](https://htmlpreview.github.io/?https://github.com/brian-chau/cpp_makefile_google_test/blob/main/TestResults/CodeCoverage/index.html) |
+| Fxn Code Coverage   | [![Fxn Code Coverage](TestResults/Badges/Fxn_Coverage.svg)](https://htmlpreview.github.io/?https://github.com/brian-chau/cpp_makefile_google_test/blob/main/TestResults/CodeCoverage/index.html) |
+| Test Results        | [![Test Results](TestResults/Badges/Test_Result.svg)](https://github.com/brian-chau/cpp_makefile_google_test/blob/main/TestResults/gtest_results.txt) |
 
 This is an example of how to use:
 * Install Ubuntu in WSL2
