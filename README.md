@@ -281,21 +281,22 @@ This is an example of how to use:
     ```
 
 5. Install `openssl` from source, along with the `libssl-dev` library.
+    * Install `libz-dev` dependency: `sudo apt install libz-dev`
     * Download the version `3.0.7` from here: https://www.openssl.org/source/
     * Run the following commands:
     ```
-    sudo chmod u+x openssl-3.0.7.tar.gz
-    tar -xzf openssl-3.0.7.tar.gz
-    cd openssl-3.0.7
+    sudo chmod u+x openssl-3.2.0.tar.gz
+    tar -xzf openssl-3.2.0.tar.gz
+    cd openssl-3.2.0
     sudo ./config --prefix=/usr/local/ssl --openssldir=/usr/local/ssl shared zlib
     sudo make
     sudo make install
-    sudo apt-get install libssl-dev
+    sudo apt install libssl-dev
     ```
 
-6. Install `cmake` from source.
-    1. Download `cmake-3.25.0.tar.gz` from this link: https://cmake.org/download/
-    2. Unzip it with the command `tar -xzf cmake-3.25.0.tar.gz`.
+7. Install `cmake` from source.
+    1. Download `cmake-3.27.0.tar.gz` from this link: https://cmake.org/download/
+    2. Unzip it with the command `tar -xzf cmake-3.27.0.tar.gz`.
     3. Run the following commands:
         ```
         sudo ./configure
@@ -303,7 +304,7 @@ This is an example of how to use:
         sudo make install
         ```
 
-7. Set up the badge generator.
+8. Set up the badge generator.
     1. Download the Go programming language from this URL, select `Linux`, and download the *.tar.gz file: https://go.dev/doc/install
     2. Install Go by using this command:
     ```
@@ -319,7 +320,7 @@ This is an example of how to use:
     go build generate_badges.go
     ```
 
-8. Install GoogleTest from source.
+9. Install GoogleTest from source.
     ```
     git clone https://github.com/google/googletest.git -b release-1.12.1
     cd googletest        # Main directory of the cloned repository.
@@ -331,7 +332,7 @@ This is an example of how to use:
     rm -rf ~/googletest
     ```
 
-9. Install FMT from source.
+10. Install FMT from source.
     * Download fmt library from [its release page on GitHub](https://github.com/fmtlib/fmt/releases/tag/9.1.0).
     * Unzip the `fmt` downloaded file.
     * Run the following commands:
