@@ -238,19 +238,19 @@ This is an example of how to use:
 1. Install `ncurses`
     1. Run this command to install the necessary libraries: `sudo apt install make build-essential lzip m4 libncurses5-dev`
 
-2. Install "gmp":
-    1. Download GMP from here: https://gmplib.org/
-    2. Unpack it with the command: `sudo tar --lzip -xvf gmp-x.y.z.tar.lz`
-    3. Navigate into that folder: `cd gmp-x.y.z`
-    4. Run the following commands:
+2. Install `gmp`:
+    1. Run `sudo apt install teXinfo`.
+    2. Download GMP from here: https://gmplib.org/
+    3. Unpack it with the command: `sudo tar --lzip -xvf gmp-x.y.z.tar.lz`
+    4. Navigate into that folder: `cd gmp-x.y.z`
+    5. Run the following commands:
         ```
         sudo ./configure --enable-cxx
         sudo make
         sudo make check
         sudo make install
         ```
-    4. Run: `make`
-    5. Run: `sudo ldconfig`
+    6. Run: `sudo ldconfig`
         1. If you get an error that says `/sbin/ldconfig.real: /usr/lib/wsl/lib/libcuda.so.1 is not a symbolic link`, then do the following:
         ```
         # in cmd as admin
@@ -269,18 +269,18 @@ This is an example of how to use:
         sudo ldconfig
         ```
 
-3. Install `pip3` and `gcovr`.
+4. Install `pip3` and `gcovr`.
     ```
     sudo apt install python3-pip
     pip3 install gcovr
     ```
 
-4. Install `g++12`, `gcc-12`, and `lcov`.
+5. Install `g++12`, `gcc-12`, and `lcov`.
     ```
     sudo apt install g++-12 gcc-12 lcov
     ```
 
-5. Install `openssl` from source, along with the `libssl-dev` library.
+6. Install `openssl` from source, along with the `libssl-dev` library.
     * Install `libz-dev` dependency: `sudo apt install libz-dev`
     * Download the version `3.0.7` from here: https://www.openssl.org/source/
     * Run the following commands:
