@@ -339,7 +339,7 @@ This is an example of how to use:
     ```
 
 10. Install FMT from source.
-    * Download fmt library from [its release page on GitHub](https://github.com/fmtlib/fmt/releases/tag/9.1.0).
+    * Download fmt library from [its release page on GitHub](https://github.com/fmtlib/fmt/releases/tag/10.1.1).
     * Unzip the `fmt` downloaded file.
     * Run the following commands:
         ```
