@@ -5,7 +5,7 @@
 USE_C = 0
 
 ifeq ($(USE_C), 1)
-CC = gcc-12
+CC = gcc-14
 SRCS = $(wildcard ./sources/*.c)
 OBJS = $(SRCS:.c=.o)
 TEST_SRCS = $(wildcard ./tests/Test_*.c ./sources/*.c)
@@ -16,7 +16,7 @@ TEST_CFLAGS = --coverage
 .c.o:
 	$(CC) $(CFLAGS) $(INCLUDES) -c $<  -o $@
 else
-CC = g++-12
+CC = g++-14
 SRCS = $(wildcard ./sources/*.cpp)
 OBJS = $(SRCS:.cpp=.o)
 CFLAGS = -Wall -Werror -O3 -fPIC -std=c++20 -g
